@@ -1,0 +1,70 @@
+<!-- EVENTOS:
+Cuando pase esto ----  yo quiero que hagas esto -----  
+.addEventListener() p/ag un ecuchador del Evento
+
+document.createElement()  p/ crear un elemento html
+ -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cuadrado{
+            border: 1px solid black;
+            width: 5em;
+            height: 5em;
+        }
+        .rojo{
+            background-color: red;
+        }
+       
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Clase de DOM</h1>    
+    <h2>Ejemplo</h2>
+
+    <button id="agregar">AGREGAR</button>
+
+    <div class="cuadrado rojo"></div>
+  
+
+    <script>
+       const agregar= document.getElementById("agregar") 
+    //    p/capturar el elemento html: boton, y guardar su referencias x id 
+
+       const body= document.getElementsByTagName("body")[0] //cuando selecciono x etiqta me devuelve un array de elementos html
+        //insertar el elemento en el lugar donde queremos que este: BODY
+        //si quiero agregarle cosas al BODY tengo que capturar el BODY
+
+       const cb= ()=>{
+        const nuevoDiv= document.createElement("div")
+        nuevoDiv.classList.add("cuadrado")
+        nuevoDiv.classList.add("rojo")
+        nuevoDiv.addEventListener("click", (event)=>{//cb q se ejecuta cuando se dispara un evento, recibe x defecto x parametro el evento
+          //los eventos se envian automat a la cb q se ejecuta ante un evento
+            //este evento q es un objeto, tiene propiedades, ej: target
+            //console.log(event.target); //el target del evento es: el elemento que disparo el evento
+          event.target.remove()
+        })
+
+        body.appendChild(nuevoDiv) //p/introducir un elemento hijo dentro de este elemento(div entro de body)
+        
+       }
+        
+       agregar.addEventListener("click",cb)
+       // a partir de este momento este elemento html(boton) va a estar esperando q ocurra algo
+       // ese algo es el 1°argumento q le tengo q dar a este metodo, ej: click
+       // cuando este evento ocuura va a ejecutar una funcion (2°argumento del metodo: cb)
+
+
+
+
+        
+    </script>
+</body>
+</html>

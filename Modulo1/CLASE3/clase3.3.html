@@ -1,0 +1,72 @@
+<!-- CLASES: La manera que tenemos para conectarnos desde nuestro código al DOM API es mediante algo llamado selectores. 
+ Estos selectores nos darán acceso a ciertos métodos para manipular los elementos del DOM 
+ Seleccion y manipulacion del DOM
+ -Metodos del objeto Document
+ 
+ selectores: nos permiten capturar elementos y guardar sus referencias x id x etiqueta x clases-->
+
+ <!-- Resumen de los selectores más comunes:
+1.getElementById(): Selecciona por id.
+2.getElementsByClassName(): Selecciona por clase.
+3.getElementsByTagName(): Selecciona por etiqueta.
+4.querySelector(): Selecciona el primer elemento que coincida con un selector CSS.
+5.querySelectorAll(): Selecciona todos los elementos que coincidan con un selector CSS.
+6.parentNode: Accede al nodo padre.
+7.children: Accede a los hijos directos de un elemento.
+8.closest(): Encuentra el ancestro más cercano que coincida con el selector. 
+9.classList-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cuadrado{
+            border: 1px solid black;
+            width: 5em;
+            height: 5em;
+        }
+        .rojo{
+            background-color: red;
+        }
+        .verde{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Clase de DOM</h1>    
+                <!-- DOM: 
+                 SELECTOR X ID:   const titulo= document.getElementById("titulo") 
+                 seleccionamos el id y guardamos la referencia en el DOM
+                este elemento html, al capturarlo forma parte de nuestro DOM (q es js) y se convierte en un objeto c/ prop y metodos
+                ej. titulo.innerHTML --me escribe lo que tengo dentro de las etiquetas
+                titulo.innerHTML= "otro texto"
+                const unaPalabra="unaVariable"
+                titulo.innerHTML=unaPalabra  //x la variable q se guardo como valor de la prop innerHTML del objeto titulo -->
+    <h2>Ejemplo</h2>
+
+    <div class="cuadrado rojo"></div>
+
+    <!-- SELECTOR X CLASE:   const cuadradosRojos= document.getElementsByClassName("rojo")   
+      HTMLCollection(3) [div.cuadrado.rojo, div.cuadrado.rojo, div.cuadrado.rojo]
+      devuelve un arreglo con todos los elementos de la clase-->
+
+    <div class="cuadrado verde"></div>
+    <div class="cuadrado rojo"></div>
+    <div class="cuadrado"></div>
+
+    <!-- classList: es una lista de clases (tb es un objeto q tiene un metodo: add p/ag clases a nuestro elemento)
+     const cuadrados= document.getElementsByTagName("div") 
+     const cuadrado= cuadrados[3]
+     cuadrado.classList.add("verde")   p/ag la clase verde a este ultimo cuadrado sin color-->
+
+    <!-- SELECTOR X ETIQUETA:  const divs = document.getElementsByTagName("div")  
+     HTMLCollection(4) [div.cuadrado.rojo, div.cuadrado.rojo, div.cuadrado.rojo, div.cuadrado.rojo] 
+     guarda dentro de la variable divs un arreglo de elementos html con el nombre de esa etiqueta-->
+
+    
+</body>
+</html>
