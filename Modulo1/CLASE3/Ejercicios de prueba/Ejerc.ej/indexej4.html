@@ -1,0 +1,54 @@
+<!-- P/crear un evento:
+PASO 1: capturar el elemento HTML que DISPARA EL EVENTO. elementos interactivos(seleccionar x id)
+PASO 2: Capturar el elemento contenedor, donde quiero insertar los nuevos elementos q van a ser generados x el evento.
+PASO 3: crear la función callback que se ejecutará cuando el usuario interactúe con el elemento que dispara el evento
+PASO 3.1: Crear un nuevo elemento HTML. Usamos document.createElement("") 
+PASO 3.2: Darle estilo al nuevo elemento  Usamos .classList.add("nombreDeClase") 
+PASO 3.3: Insertar el nuevo elemento dentro del elemento contenedor previamente capturado. Usamos body.appendChild( )
+PASO 4: Crear el evento. Usamos eDisparador.addEventListener("evento",funcion)              
+-Si quiero eliminar el elemento que cree en el evento haciendo click sobre él, como hago? -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color:  grey;
+        }
+        .cuadrado{
+            border: 1px solid black;
+            width: 5em;
+            height: 5em;
+        }
+        .rojo{
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="boton">AGREGAR</button>
+    <div class="cuadrado rojo"></div>
+    <div id="contenedor"></div>
+
+    <script>
+        const boton= document.getElementById("boton")
+
+        const contenedor= document.getElementById("contenedor")
+
+        function agCuadrado() {
+            const nuevoE= document.createElement("div")
+            nuevoE.classList.add("cuadrado")
+            nuevoE.classList.add("rojo")
+            contenedor.appendChild(nuevoE)
+        }
+        boton.addEventListener("click",agCuadrado)
+
+    </script>
+
+</body>
+</html>

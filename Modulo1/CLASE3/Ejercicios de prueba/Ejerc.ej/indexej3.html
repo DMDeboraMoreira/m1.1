@@ -1,0 +1,44 @@
+<!-- 
+ EJEMPLO SIN FUNCION
+ Siempre que necesite capturar un elemento único para trabajar con eventos, 
+usaré document.getElementById('id_del_elemento') como primer paso
+ 
+
+El proceso completo sería:
+1.Captura el elemento q dispara el evento(el botón).es buena práctica asegurarte d qlos elementos interactivos tengan un id
+2.Captura el contenedor donde insertarás el nuevo elemento (el div):
+3.Asocia un evento y genera un nuevo elemento:
+
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button id="boton">Agregar</button>
+
+    <div id="contenedor"></div>
+
+    <script>
+
+       const boton = document.getElementById("boton"); 
+
+       const contenedor = document.getElementById("contenedor")
+
+    boton.addEventListener("click", () => {
+    const nuevoElemento = document.createElement("p"); // Crear un nuevo elemento
+    nuevoElemento.textContent = "¡Soy un nuevo elemento!";
+    contenedor.appendChild(nuevoElemento); // Insertar el nuevo elemento en el contenedor
+    });
+
+    </script>
+
+</body>
+</html>
+

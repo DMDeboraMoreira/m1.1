@@ -1,0 +1,80 @@
+<!-- P/crear un evento:
+PASO 1: capturar el elemento HTML que DISPARA EL EVENTO. elementos interactivos(seleccionar x id)
+PASO 2: Capturar el elemento contenedor, donde quiero insertar los nuevos elementos q van a ser generados x el evento.
+PASO 3: crear la función callback que se ejecutará cuando el usuario interactúe con el elemento que dispara el evento
+PASO 3.1: Crear un nuevo elemento HTML. Usamos document.createElement("") 
+PASO 3.2: Darle estilo al nuevo elemento  Usamos .classList.add("nombreDeClase") 
+PASO 3.3: Insertar el nuevo elemento dentro del elemento contenedor previamente capturado. Usamos body.appendChild( ) 
+PASO 4: Crear el evento. Usamos eDisparador.addEventListener("evento",function)               -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: grey;
+        }
+        /* Clase para crear un cuadrado con bordes */
+        .cuadrado {
+            border: 1px solid black; /* Borde negro alrededor del cuadrado */
+            width: 5em; /* Ancho del cuadrado */
+            height: 5em; /* Alto del cuadrado */
+        }
+        /* Clase para dar color rojo al fondo del cuadrado */
+        .rojo {
+            background-color: red; /* Fondo rojo */
+        }
+    </style>
+</head>
+<body>
+    <h1 id="titulo">Clase de DOM</h1> <!-- Título principal de la página -->
+    <h2>Ejemplo</h2> <!-- Subtítulo -->
+
+    <button id="agregar">AGREGAR</button> <!-- Botón que usaremos para agregar cuadrados -->
+
+    <div class="cuadrado rojo"></div> <!-- Un cuadrado inicial de ejemplo -->
+
+    <script>
+        // PASO 1: Capturar el botón en una variable para trabajar con él
+        // Lo primero que necesito para crear un evento es capturar el elemento HTML que DISPARA EL EVENTO
+        // No puedo usar: document.getElementsByTagName("button") xq este método devuelve una colección (array-like) 
+        // de todos los elementos <button> presentes en el documento.
+
+        // Usamos document.getElementById("id") para capturar el elemento con el ID "agregar".
+        const agregar = document.getElementById("agregar");
+
+        // PASO 2: Capturar el elemento contenedor, donde quiero insertar los nuevos cuadrados.
+        // En este caso, queremos insertar elementos en el <body>.
+        // document.querySelector("body") p capturar el body
+        const body = document.querySelector("body");//Devuelve el 1° elemento que coincida con el selector CSS proporcionado
+
+        // PASO 3: Crear una función que hará lo necesario para agregar un nuevo cuadrado.
+        // se ejecutará cuando el usuario interactúe con el elemento que dispara el evento. 
+        // Esta función se ejecutará cada vez que hagamos clic en el botón.
+        const cb = () => {
+            // PASO 3.1: Crear un nuevo elemento HTML que será un <div>.
+            // Usamos document.createElement("div") para crear este nuevo elemento.
+            const nuevoDiv = document.createElement("div");
+
+            // PASO 3.2: Darle estilo al nuevo <div> para que sea un cuadrado.
+            // Usamos .classList.add("nombreDeClase") para agregar clases al elemento.
+            // La clase "cuadrado" le da el tamaño y borde definidos en CSS.
+            nuevoDiv.classList.add("cuadrado");
+            // La clase "rojo" le da el color de fondo rojo.
+            nuevoDiv.classList.add("rojo");
+
+            // PASO 3.3: Insertar el nuevo <div> dentro del <body>.
+            // Usamos body.appendChild(nuevoDiv) para agregar el nuevo <div> como hijo dentro del body.
+            body.appendChild(nuevoDiv);
+        };
+
+        // PASO 4: Vincular la función 'cb' al botón para que se ejecute al hacer clic.
+        // Usamos el método addEventListener("tipoDeEvento", funcion) para escuchar el evento "click".
+        // Esto significa que cuando el botón sea clicado, se ejecutará la función 'cb'.
+        agregar.addEventListener("click", cb);
+    </script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!-- Enunciado:
+Crea una clase Producto con las propiedades nombre y precio.
+Crea un formulario en el HTML con dos campos de entrada: uno para el nombre del producto y otro para el precio.
+Añade un botón al formulario que permita agregar un nuevo producto cuando se haga clic en él.
+Cuando se haga clic en el botón:
+Crea una instancia de la clase Producto con los datos del formulario.
+Muestra el producto como una tarjeta en el DOM (nombre y precio en un <div>).
+Cada tarjeta debe tener un diseño simple (puedes usar CSS básico si quieres).
+
+Explicación del Código:HTML:
+Agregamos un contenedor (div) para los productos con el ID productContainer.
+Incluimos un estilo básico para las tarjetas en el bloque <style>:
+Borde, sombra, y diseño de los elementos con clases como .card, .card h3, y .card p.
+
+Paso a paso: -->
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Productos</title>
+  <style>
+    /* Estilos básicos para las tarjetas */
+    body{
+      background-color: rgb(63, 60, 60);
+    }
+    .card {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 8px 0;
+      background-color: rgb(214, 136, 136);
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .card h3 {
+      margin: 0 0 8px;
+    }
+    .card p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Lista de Productos</h1>
+  <form id="productForm">
+    <input type="text" id="productName" placeholder="Nombre del producto">
+    <input type="number" id="productPrice" placeholder="Precio del producto">
+    <button type="button" id="addProductButton">Agregar Producto</button>
+  </form>
+  <div id="productContainer"></div>
+  <script src="script1.js"></script>
+</body>
+</html>
